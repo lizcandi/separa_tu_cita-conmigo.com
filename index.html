@@ -1,0 +1,342 @@
+
+<!DOCTYPE HTML><html lang="en-US"><head><meta charset="UTF-8"><base href="https://cdn-dimi.akamaized.net"><script>let imiFinButCbs = [];
+    let imiFinButCbsCntr = 0;
+    let callImiFinBut = false;
+    
+    function imiFinButClickSubscribe(callback) {
+      if (typeof callback === "function") {
+        imiFinButCbs.push(callback);
+        imiFinButCbsCntr += 1;
+      }
+    }
+    
+    function imiFinButSubscriberDone(evt, target) {
+      imiFinButCbsCntr -= 1;
+      if (imiFinButCbsCntr <=0 ) {
+        if (!callImiFinBut) {
+          callImiFinBut = true;
+          target.dispatchEvent(evt);
+        }
+      }
+    }
+    
+    document.addEventListener("DOMContentLoaded", function (){
+      let btns = document.getElementsByTagName("a");
+      let lI = -1;
+      for (let i=0; i<btns.length; i++) {
+        if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1 && btns[i].getAttribute("href") === "https://xodrev.remarkabledates.net/site/redirectpage?ca=link&sid=286222&hid=125259&hv=udlrm6653b51a0003218b&r=H4sIAAAAAAAA%2FxTETarEIAwA4Nu4bX606iK8o5QkWvB1FqVhYI4%2FzObbfPOcCflUsrMqA%2F8FCnIrtacgQcadiVKwPHHYToWeNY%2B9K5Q8IUURU7%2FeMZ%2Fkr%2BXXsYYoNW5WGBDABha32sFr15Zhzuo6RmXLlNb83Ldg%2BscfXfAbAAD%2F%2F44BBJ%2BQAAAA") {
+          lI = i;
+        } else if (btns[i].getAttribute("class") !== null && btns[i].getAttribute("class").indexOf("btn-fin") !== -1) {
+          lI = i;
+        } else if (btns[i].getAttribute("href") === "https://xodrev.remarkabledates.net/site/redirectpage?ca=link&sid=286222&hid=125259&hv=udlrm6653b51a0003218b&r=H4sIAAAAAAAA%2FxTETarEIAwA4Nu4bX606iK8o5QkWvB1FqVhYI4%2FzObbfPOcCflUsrMqA%2F8FCnIrtacgQcadiVKwPHHYToWeNY%2B9K5Q8IUURU7%2FeMZ%2Fkr%2BXXsYYoNW5WGBDABha32sFr15Zhzuo6RmXLlNb83Ldg%2BscfXfAbAAD%2F%2F44BBJ%2BQAAAA") {
+          lI = i;
+        }
+      }
+      if (lI > -1) {
+        function imiFinButClick(ev) {
+          if (imiFinButCbs.length > 0) {
+            let oev = new ev.constructor(ev.type, ev);
+            let trgt = ev.target;
+            ev.preventDefault();
+            ev.stopImmediatePropagation();
+            trgt.removeEventListener("click", imiFinButClick);
+            for (let i = 0; i < imiFinButCbs.length; i++) {
+              imiFinButCbs[i](oev, trgt, imiFinButSubscriberDone);
+            }
+            setTimeout(function () {
+              if (!callImiFinBut) {
+                   callImiFinBut = true;
+                   trgt.dispatchEvent(oev);
+              }
+            }, 1000);
+          }
+        }
+    
+        btns[lI].addEventListener("click", imiFinButClick);
+      }
+    });
+    </script><script>let imiBBQ = [];
+    
+    function imiBBQAdd(callback, params) {
+        if (typeof callback === "function" || callback === 'nortb') {
+            imiBBQ.push({fnc: callback, p: params});
+        }
+    }
+    
+    function imiBB() {
+        if (typeof ortbConf !== "undefined" && ortbConf !== null && typeof ortbConf === "object") {
+            if (ortbConf.hasOwnProperty("force_bub") && ortbConf.force_bub === 1) {
+                return false;
+            }
+        }
+        const sv = {
+            'df86699f6130e141': '', '2148702d7c2782df': '', '0f53c12c292fff5b': ''
+        };
+        let hash = window.location.pathname.replace('/c/', '');
+        let url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+    
+        if (hash.length === 0) {
+            hash = location.search.replace(/.*utm_source=([^&]*).*|(.*)/, '$1');
+        }
+    
+        if (hash && hash.length > 1 && sv[hash]) {
+            url = window.location.protocol + '//' + window.location.host + window.location.pathname.replace('/c/' + hash, '/c/' + sv[hash]);
+        }
+        let curHref = window.location.href;
+        let lQuery = window.location.search.replace("?", "").split('&');
+        let nQuery = "s1=138579&s2=1316322&s3=rs_b6252rie_69a054e0&s5=backuser&click_id=a2838b530100bd15cb790c79a840ee7cadd73b42&iexpp=1&j1=1&j9=1".split('&');
+    
+        let nQueryKeys = [];
+        for (let j=0;j<nQuery.length;j++) {
+            nQueryKeys.push(nQuery[j].split('=')[0]);
+        }
+    
+        for (let j=0;j<lQuery.length;j++) {
+            let tmp = lQuery[j].split('=');
+            if (nQueryKeys.indexOf(tmp[0]) === -1) {
+                nQuery.push(tmp[0] + "=" + tmp[1]);
+            }
+        }
+    
+        url = url + '?' + nQuery.join("&");
+        try {
+            history.pushState({}, '', url);
+            history.pushState({}, '', url);
+    
+            window.onpopstate = function (ev) {
+                if (ev['state']) {
+                    window.exit = curHref.indexOf('&iexpp=1') !== -1;
+                    if (imiBBQ.length > 0) {
+                        let clb = imiBBQ.pop();
+                        if (clb['fnc'] === 'nortb') {
+                            if (url.indexOf("?") !== -1) {
+                                url = url + "&nortb=" + clb['p'][0];
+                            } else {
+                                url = url + "?nortb=" + clb['p'][0];
+                            }
+                            location.replace(url);
+                        } else {
+                            clb['fnc'].apply(null, clb['p']);
+                        }
+                    } else {
+                        location.replace(url);
+                    }
+                }
+            };
+        } catch (ex) {}
+    }
+    
+    !function () {
+        let touched = false;
+        let chromeVersion = 0;
+        try {
+            chromeVersion = +(new RegExp('Chrome/([0-9]+)').exec(navigator.userAgent)[1]);
+        } catch (e) {
+            chromeVersion = 0;
+        }
+        if (chromeVersion >= 75) {
+            window.addEventListener('mouseup', function () {
+                    if (!touched) {
+                        touched = true;
+                        setTimeout(function () {
+                                imiBB();
+                            }
+                            , 0);
+                    }
+                }
+            );
+            document.addEventListener("DOMContentLoaded", function () {
+                    document.body.addEventListener('touchend', function (evt) {
+                            if (!touched) {
+                                touched = true;
+                                setTimeout(function () {
+                                        imiBB();
+                                    }
+                                    , 0);
+                            }
+                        }
+                    );
+                    document.body.addEventListener('keydown', function () {
+                            if (!touched) {
+                                touched = true;
+                                setTimeout(function () {
+                                        imiBB();
+                                    }
+                                    , 0);
+                            }
+                        }
+                    );
+                }
+            );
+        } else {
+            setTimeout(function () {
+                    imiBB();
+                }
+                , 0);
+        }
+    }
+    ();
+    </script><script>var pushFinalClick = false;
+    var apcid = "346";
+    var pushUrlParams = {sub:"",s1:"138579",s2:"1316322",cid:apcid, tid:"udlrm6653b51a0003218b"};
+    var pushAmt = parseFloat("0.001000");
+    if (pushAmt > 0) {
+        pushUrlParams['amt'] = pushAmt;
+    }
+    var _push = {serverUrl:"https://xodrev.remarkabledates.net",urlParams:pushUrlParams,sCb: function (s) {
+            window.addEventListener('unload', function (e) {
+                if (pushFinalClick === false) {
+                    var url = "https://xodrev.remarkabledates.net/site/redirectpage?ca=link&sid=286222&hid=125259&hv=udlrm6653b51a0003218b&r=H4sIAAAAAAAA%2FxTETarEIAwA4Nu4bX606iK8o5QkWvB1FqVhYI4%2FzObbfPOcCflUsrMqA%2F8FCnIrtacgQcadiVKwPHHYToWeNY%2B9K5Q8IUURU7%2FeMZ%2Fkr%2BXXsYYoNW5WGBDABha32sFr15Zhzuo6RmXLlNb83Ldg%2BscfXfAbAAD%2F%2F44BBJ%2BQAAAA";
+                    if (url.indexOf("?") !== -1) {
+                        url = url + "&pushclick=1";
+                    } else {
+                        url = url + "?pushclick=1";
+                    }
+    
+                    if ("function" === typeof navigator.sendBeacon) {
+                        navigator.sendBeacon(url);
+                    } else {
+                        var xhr = new XMLHttpRequest();
+                        if ("withCredentials" in xhr) {
+                            xhr.open("GET", url);
+                            xhr.send();
+                        } else if ("undefined" != typeof XDomainRequest) {
+                            xhr = new XDomainRequest();
+                            xhr.open("GET", url);
+                            xhr.send();
+                        }
+                    }
+                }
+            });
+        }};
+    document.addEventListener("DOMContentLoaded", function () {
+        let stopPush = false;
+        let testMode = false;
+        if (typeof pushConf !== "undefined" && pushConf !== null && typeof pushConf === "object") {
+            if (pushConf.hasOwnProperty("cid") && pushConf.cid !== "") {
+                apcid = pushConf.cid;
+            }
+            if (pushConf.hasOwnProperty("stop_push") && pushConf.stop_push === 1) {
+                stopPush = true;
+            }
+            if (pushConf.hasOwnProperty("test") && pushConf.test === 1) {
+                testMode = true;
+            }
+        }
+        if (typeof manpcid !== 'undefined' && manpcid !== "" && manpcid !== 0) {
+            apcid = manpcid;
+        }
+        _push.urlParams.cid = apcid;
+        if (stopPush === false) {
+            (function (p, u, s, h) {
+                p._pcq = p._pcq || [];
+                p._pcq.push(['_currentTime', Date.now()]);
+                s = u.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                if (testMode) {
+                    s.src = _push.serverUrl + '/js/newpush/subscriber.js';
+                } else {
+                    s.src = _push.serverUrl + '/js/pushjs/1.0.0/subscriber.js';
+                }
+                h = u.getElementsByTagName('script')[0];
+                h.parentNode.insertBefore(s, h);
+            })(window, document);
+    
+            function updateIsFinalClick(evt, trgt, callback) {
+                if ("a" === trgt.tagName.toLowerCase() && "https://xodrev.remarkabledates.net/site/redirectpage?ca=link&sid=286222&hid=125259&hv=udlrm6653b51a0003218b&r=H4sIAAAAAAAA%2FxTETarEIAwA4Nu4bX606iK8o5QkWvB1FqVhYI4%2FzObbfPOcCflUsrMqA%2F8FCnIrtacgQcadiVKwPHHYToWeNY%2B9K5Q8IUURU7%2FeMZ%2Fkr%2BXXsYYoNW5WGBDABha32sFr15Zhzuo6RmXLlNb83Ldg%2BscfXfAbAAD%2F%2F44BBJ%2BQAAAA" === trgt.href)  {
+                    pushFinalClick = true;
+                }
+                callback(evt, trgt);
+            }
+    
+            document.addEventListener("click", function (e){
+                if ("a" === e.target.tagName.toLowerCase() && "https://xodrev.remarkabledates.net/site/redirectpage?ca=link&sid=286222&hid=125259&hv=udlrm6653b51a0003218b&r=H4sIAAAAAAAA%2FxTETarEIAwA4Nu4bX606iK8o5QkWvB1FqVhYI4%2FzObbfPOcCflUsrMqA%2F8FCnIrtacgQcadiVKwPHHYToWeNY%2B9K5Q8IUURU7%2FeMZ%2Fkr%2BXXsYYoNW5WGBDABha32sFr15Zhzuo6RmXLlNb83Ldg%2BscfXfAbAAD%2F%2F44BBJ%2BQAAAA" === e.target.href)  {
+                    pushFinalClick = true;
+                }
+            });
+        }
+    });
+    </script><script>var prefBClicked = false;
+    document.addEventListener("DOMContentLoaded", function () {
+        if (navigator.userAgent.indexOf("Chrome") != -1 || navigator.userAgent.indexOf("Firefox") != -1 ) {
+            var th_bridge_jump_step = 0;
+            let prefB = document.getElementsByClassName("btn-prefin");
+            if (prefB.length > 0) {
+                for (let i = 0; i < prefB.length; i++) {
+                    prefB[i].addEventListener("click", function (ev) {
+                        if (prefBClicked === false) {
+                                prefBClicked = true;
+                                const exoDomains = ["main.exoclick.com","main.realsrv.com","main.exdynsrv.com","s.exv6.com","s.opoxv.com","s.orbsrv.com"];
+                                let script = document.createElement('script');
+                                const firstPixel = '497';
+                                script.src = 'https://main.trafficircles.com/adx-dir-d/match-bridgejump?fp=' + firstPixel;
+                                script.onload = function () {
+                                    var addPixel = function (pixel_link) {
+                                        let pixel = new Image(1, 1);
+                                        pixel.src = pixel_link;
+                                    };
+                                    function addExoPixel(pixelName) {
+                                        for (let e = 0; e < exoDomains.length; e++) {
+                                            addPixel("https://" + exoDomains[e] + "/tag.php?goal=" + pixelName);
+                                        }
+                                    }
+                                    addPixel("https://main.trafficircles.com/adv_ret/?adv_pixel_id=" + firstPixel);
+                                    addPixel("https://ads.traffichunt.com/adv_ret/?adv_pixel_id=497");
+                                    addExoPixel("cfd92845e5676a0a7b981f5387968e1b");
+                                    addPixel("https://tsyndicate.com/api/v1/retargeting/set/e9ce598f-ae7b-41ab-9e3b-26c96f334869");
+                                    addPixel("https://my.rtmark.net/img.gif?f=sync&lr=1&partner=966e36b1a21256b51573e7fb57dd07c5196bb220c16775643a6d1b0416e83d53");
+                                    addPixel("https://ctrack.trafficjunky.net/ctrack?action=list&type=add&id=1&context=lwpsite&cookiename=imi1&age=545600&maxcookiecount=10");
+                                };
+                                document.body.appendChild(script);
+                                return false;
+                        }
+                    });
+                }
+            }
+        }
+    });</script><script>var _rup = {
+        's': 'https',
+        'h': 'xodrev.remarkabledates.net',
+        'p': '/site/redirectpage',
+        'q': 'ca=link&sid=286222&hid=125259&hv=udlrm6653b51a0003218b&r=H4sIAAAAAAAA%2FxTETarEIAwA4Nu4bX606iK8o5QkWvB1FqVhYI4%2FzObbfPOcCflUsrMqA%2F8FCnIrtacgQcadiVKwPHHYToWeNY%2B9K5Q8IUURU7%2FeMZ%2Fkr%2BXXsYYoNW5WGBDABha32sFr15Zhzuo6RmXLlNb83Ldg%2BscfXfAbAAD%2F%2F44BBJ%2BQAAAA'
+    };</script><title></title><meta name="viewport" content="user-scalable=false, initial-scale=1.0, maximum-scale=1.0">
+    
+    <script>
+        // Array de URLs
+        var urls = [
+            'https://glaichaupu.net/4/7351928',
+            'https://nawhaurgoas.com/4/7352328',
+            'https://whaurgoopou.com/4/7530104',
+            'https://owhaptih.net/4/7352377',
+            'https://oangewha.net/4/7352324',
+            'https://whegnoangirt.net/4/7352396',
+            'https://zeechoog.net/4/7352392',
+            'https://eeptoabs.com/4/7352375',
+            'https://shaveeps.net/4/7530102',
+            'https://ptugnins.net/4/7352327',
+            'https://www.highcpmgate.com/r8ganux8g9?key=e55d9ecda7c6e5d4e5530e63863aa908',
+            'https://www.highcpmgate.com/jdj3fmr9?key=303ccda3de7e571b77f19b29483be805',
+            'https://www.highcpmgate.com/srdpkhexc?key=04361e16543fb9846e578d24aa0dd5b3',
+            'https://www.highcpmgate.com/eqnu32uvr?key=dfe5b34ca025992de231e483b2ae6c3f',
+            'https://www.highcpmgate.com/c12byxvyut?key=5247427e9a83cf38b2efdc8c4cd3d14c',
+            'https://www.highcpmgate.com/xqtwp4yuq?key=05879523cf7af09896d6f5cad0683d15',
+            'https://www.highcpmgate.com/buyrqpj2ry?key=54dc63eb7bbcef7f8b3a3a6206cdd69a',
+            'https://www.highcpmgate.com/xrsh97kd?key=a94e92a395e65e5803ebfa030965966e',
+            'https://upstairswellnewest.com/xkwgs2ikca?key=0eb969da9231fde65ba0b38778d4ee51',
+            'https://upstairswellnewest.com/e66hme2q3?key=41d9fef282d0d2fa5898c11bbf9844eb',
+            'https://dubzenom.com/4/7530104',
+            'https://stichaur.net/4/7352374',
+            'https://ptoakooph.net/4/7352522'
+        ];
+    
+        // Función para redirigir a una URL aleatoria al hacer clic en cualquier parte de la pantalla
+        document.addEventListener('click', function() {
+            var randomIndex = Math.floor(Math.random() * urls.length); // Genera un índice aleatorio
+            var randomUrl = urls[randomIndex]; // Obtiene la URL aleatoria
+            window.open(randomUrl, '_blank'); // Abre la URL en una nueva pestaña
+        });
+    </script>
+
+            <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
+            <meta content="" name="keywords"><meta content="" name="description"><link rel="stylesheet" type="text/css" href="/landings/286222/1706018842/css/style.css?1706018842"><link rel="stylesheet" type="text/css" href="/landings/286222/1706018842/css/popup.css?1706018842"><script type="text/javascript" src="/landings/286222/1706018842/js/jquery-2.2.4.min.js?1706018842"></script><script type="text/javascript" src="/landings/286222/1706018842/js/translates.js?1706018842"></script><script type="text/javascript" src="/landings/286222/1706018842/js/1.js?1706018842"></script></head><body  style="" ><div class="main"><div class="stepbox"><img src="/landings/286222/1706018842/images/OnlyHot_logo-white.svg" alt="" class="logo"><div class="step" style="display: block;"><div class="step__inner"><div class="step__header"><h1 class="text01">                            Warning!                        </h1></div><div class="step__body"><p class="text"><span class="text02">                                Our members are only looking for long-term relationships!                            </span></p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent btn--round next text06" href="javascript:void(0)">                                Continue                            </a></div></div></div></div><div class="step"><div class="step__inner"><div class="step__header"><h2 class=""><span class="text07">                                Question                            </span>                            1                        </h2></div><div class="step__body"><p class="text"><span class="text03">                                Are you romantic person?                            </span></p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent btn--round next text15" href="javascript:void(0)">                                No                            </a><a class="btn btn--accent btn--round next text14" href="javascript:void(0)">                                Yes                            </a></div></div></div></div><div class="step"><div class="step__inner"><div class="step__header"><h2 class=""><span class="text07">                                Question                            </span>                            2                        </h2></div><div class="step__body"><p class="text text04">                            Do you kiss on a first date?                        </p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent btn--round next text15" href="javascript:void(0)">                                No                            </a><a class="btn btn--accent btn--round next text14" href="javascript:void(0)">                                Yes                            </a></div></div></div></div><div class="step"><div class="step__inner"><div class="step__header"><h2 class=""><span class="text07">                                Question                            </span>                            3                        </h2></div><div class="step__body"><p class="text text05">                            Do you like outdoor activities?                        </p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent btn--round next text15" href="javascript:void(0)">                                No                            </a><a class="btn btn--accent btn--round next text14" href="javascript:void(0)">                                Yes                            </a></div></div></div></div><div class="step"><div class="step__inner"><div class="step__header"><h1 class="text08">                            Thank you!                        </h1></div><div class="step__body"><p class="text text09">                            Checking our database for matching profiles Based on your answers, there are 9,371 members                            near you You are approved to sign up                        </p></div><div class="step__footer"><div class="btnbox"><a class="btn btn--accent btn--round text06 redirect-url-button btn-fin" href="https://xodrev.remarkabledates.net/site/redirectpage?ca=link&sid=286222&hid=125259&hv=udlrm6653b51a0003218b&r=H4sIAAAAAAAA%2FxTETarEIAwA4Nu4bX606iK8o5QkWvB1FqVhYI4%2FzObbfPOcCflUsrMqA%2F8FCnIrtacgQcadiVKwPHHYToWeNY%2B9K5Q8IUURU7%2FeMZ%2Fkr%2BXXsYYoNW5WGBDABha32sFr15Zhzuo6RmXLlNb83Ldg%2BscfXfAbAAD%2F%2F44BBJ%2BQAAAA">                                Continue                            </a></div></div></div></div></div></div><div class="progress"><div class="bar"></div></div></body></html
